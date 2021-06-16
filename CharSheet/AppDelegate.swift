@@ -12,8 +12,20 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let characters = CharactersTableVIewController(nibName: "CharactersTableVIewController", bundle: nil)
+        
+        characters.title = "Characters"
+        
+        let navigationController = UINavigationController(rootViewController: characters)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         // Override point for customization after application launch.
         return true
     }

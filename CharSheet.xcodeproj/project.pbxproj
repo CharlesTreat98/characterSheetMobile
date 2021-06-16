@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005E0926267A535500872241 /* CharacterSheetViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E0924267A535500872241 /* CharacterSheetViewViewController.swift */; };
+		005E0927267A535500872241 /* CharacterSheetViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E0925267A535500872241 /* CharacterSheetViewViewController.xib */; };
 		005ED360267940A400975988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED35F267940A400975988 /* AppDelegate.swift */; };
 		005ED362267940A400975988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED361267940A400975988 /* SceneDelegate.swift */; };
 		005ED364267940A400975988 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED363267940A400975988 /* ViewController.swift */; };
@@ -14,9 +16,13 @@
 		005ED36A267940A400975988 /* CharSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005ED368267940A400975988 /* CharSheet.xcdatamodeld */; };
 		005ED36C267940A600975988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005ED36B267940A600975988 /* Assets.xcassets */; };
 		005ED36F267940A600975988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005ED36D267940A600975988 /* LaunchScreen.storyboard */; };
+		005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3AE267980B500975988 /* CharacterSheet.swift */; };
+		005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005E0924267A535500872241 /* CharacterSheetViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewViewController.swift; sourceTree = "<group>"; };
+		005E0925267A535500872241 /* CharacterSheetViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSheetViewViewController.xib; sourceTree = "<group>"; };
 		005ED35C267940A400975988 /* CharSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005ED35F267940A400975988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005ED361267940A400975988 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +32,8 @@
 		005ED36B267940A600975988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		005ED36E267940A600975988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		005ED370267940A600975988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005ED3AE267980B500975988 /* CharacterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheet.swift; sourceTree = "<group>"; };
+		005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableVIewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,10 @@
 				005ED36D267940A600975988 /* LaunchScreen.storyboard */,
 				005ED370267940A600975988 /* Info.plist */,
 				005ED368267940A400975988 /* CharSheet.xcdatamodeld */,
+				005ED3AE267980B500975988 /* CharacterSheet.swift */,
+				005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */,
+				005E0924267A535500872241 /* CharacterSheetViewViewController.swift */,
+				005E0925267A535500872241 /* CharacterSheetViewViewController.xib */,
 			);
 			path = CharSheet;
 			sourceTree = "<group>";
@@ -128,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				005ED36F267940A600975988 /* LaunchScreen.storyboard in Resources */,
+				005E0927267A535500872241 /* CharacterSheetViewViewController.xib in Resources */,
 				005ED36C267940A600975988 /* Assets.xcassets in Resources */,
 				005ED367267940A400975988 /* Main.storyboard in Resources */,
 			);
@@ -142,8 +155,11 @@
 			files = (
 				005ED364267940A400975988 /* ViewController.swift in Sources */,
 				005ED36A267940A400975988 /* CharSheet.xcdatamodeld in Sources */,
+				005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */,
+				005E0926267A535500872241 /* CharacterSheetViewViewController.swift in Sources */,
 				005ED360267940A400975988 /* AppDelegate.swift in Sources */,
 				005ED362267940A400975988 /* SceneDelegate.swift in Sources */,
+				005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
