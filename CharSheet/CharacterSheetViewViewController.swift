@@ -14,9 +14,11 @@ class CharacterSheetViewViewController: UIViewController {
     @IBOutlet weak var textLabel:UILabel?
     @IBOutlet weak var textLabel2:UITextView?
     @IBOutlet weak var hitButton:UIButton?
+    @IBOutlet weak var hitStatus:UILabel?
+    
+    
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,14 +26,19 @@ class CharacterSheetViewViewController: UIViewController {
         
         dateFormatter.dateFormat = "MM/dd/YYYY"
         
+        view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        
         textLabel?.text = currentChar.name
         textLabel2?.text = "Level: " + String(currentChar.level) + "\n" +
                           "Hitpoints: " + String(currentChar.hitPoints) + "\n" +
                             "Date Created: " +  dateFormatter.string(from: currentChar.dateCreated)
-                        
+        hitStatus?.text = ""
+        
+        textLabel2?.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
         hitButton?.setTitle("Roll to Hit the Goblin!", for: .normal)
 //        hitButton?.addAction(self.determineHit(), for: hitButton?.isHighlighted)
+        hitButton?.addTarget(self, action: #selector(determineHit(sender:)), for: .touchUpInside)
         
         
         
@@ -39,13 +46,13 @@ class CharacterSheetViewViewController: UIViewController {
         
     }
     
-    func determineHit() {
+    @objc func determineHit(sender: UIButton) {
         
         if (currentChar.toHit()) {
-            hitButton?.setTitle("You hit the goblin! Hit it again?", for: .normal)
+            hitStatus?.text = ("You hit the goblin! Hit it again?")
         }
         else {
-            hitButton?.setTitle("You missed the goblin!", for: .disabled)
+            hitStatus?.text = ("You missed the goblin!")
         }
         
         
