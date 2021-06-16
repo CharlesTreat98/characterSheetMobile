@@ -31,6 +31,7 @@ class CharacterSheetViewViewController: UIViewController {
         textLabel?.text = currentChar.name
         textLabel2?.text = "Level: " + String(currentChar.level) + "\n" +
                           "Hitpoints: " + String(currentChar.hitPoints) + "\n" +
+                          "Attack Modifier: " + String(currentChar.attackMod) + "\n" +
                             "Date Created: " +  dateFormatter.string(from: currentChar.dateCreated)
         hitStatus?.text = ""
         
