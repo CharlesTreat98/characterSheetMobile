@@ -7,26 +7,25 @@
 
 import UIKit
 
-class CharactersTableVIewController: UITableViewController {
+final class CharactersTableVIewController: UITableViewController {
 
-    let characters =
-        [JeanV, Yanko, Rand,
-         CharacterSheet(hitPoints: 66, level: 6, name: "Kitt", dateCreated: newDate, attackMod: 7),
-         CharacterSheet(hitPoints: 18, level: 1, name: "Mark 4", dateCreated: newDate, attackMod: 5),
-         CharacterSheet(hitPoints: 44, level: 20, name: "Ba'alzamon", dateCreated: newDate, attackMod: 22),
-         CharacterSheet(hitPoints: 120, level: 12, name: "Moiraine", dateCreated: newDate, attackMod: 11),
-         CharacterSheet(hitPoints: 35, level: 5, name: "Varjo", dateCreated: newDate, attackMod: 6),
-         CharacterSheet(hitPoints: 96, level: 10, name: "Fuyuki", dateCreated: newDate, attackMod: 10),
-         CharacterSheet(hitPoints: 44, level: 5, name: "Tasbard", dateCreated: newDate, attackMod: 7),
-         CharacterSheet(hitPoints: 70, level: 6, name: "Eloise", dateCreated: newDate, attackMod: 8),
-         CharacterSheet(hitPoints: 58, level: 6, name: "Harenhalleth", dateCreated: newDate, attackMod: 8),
-         CharacterSheet(hitPoints: 78, level: 9, name: "Cosmo", dateCreated: newDate, attackMod: 12),
-         CharacterSheet(hitPoints: 60, level: 7, name: "Ishmael", dateCreated: newDate, attackMod: 9)
-        ]
-    
-    
-         
-    
+    let characters = [
+        JeanV,
+        Yanko,
+        Rand,
+        CharacterSheet(hitPoints: 66, level: 6, name: "Kitt", dateCreated: newDate, currentHitPoints: 66,  attackMod: 7),
+        CharacterSheet(hitPoints: 18, level: 1, name: "Mark 4", dateCreated: newDate, currentHitPoints: 18, attackMod: 5),
+        CharacterSheet(hitPoints: 44, level: 20, name: "Ba'alzamon", dateCreated: newDate, currentHitPoints: 44, attackMod: 22),
+        CharacterSheet(hitPoints: 120, level: 12, name: "Moiraine", dateCreated: newDate, currentHitPoints: 120, attackMod: 11),
+        CharacterSheet(hitPoints: 35, level: 5, name: "Varjo", dateCreated: newDate, currentHitPoints: 35, attackMod: 6),
+        CharacterSheet(hitPoints: 96, level: 10, name: "Fuyuki", dateCreated: newDate, currentHitPoints: 96, attackMod: 10),
+        CharacterSheet(hitPoints: 44, level: 5, name: "Tasbard", dateCreated: newDate, currentHitPoints: 44, attackMod: 7),
+        CharacterSheet(hitPoints: 70, level: 6, name: "Eloise", dateCreated: newDate, currentHitPoints: 70, attackMod: 8),
+        CharacterSheet(hitPoints: 58, level: 6, name: "Harenhalleth", dateCreated: newDate, currentHitPoints: 58, attackMod: 8),
+        CharacterSheet(hitPoints: 78, level: 9, name: "Cosmo", dateCreated: newDate, currentHitPoints: 78, attackMod: 12),
+        CharacterSheet(hitPoints: 60, level: 7, name: "Ishmael", dateCreated: newDate, currentHitPoints: 60, attackMod: 9)
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,10 +39,10 @@ class CharactersTableVIewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
