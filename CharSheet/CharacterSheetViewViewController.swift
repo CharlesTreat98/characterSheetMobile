@@ -63,6 +63,7 @@ final class CharacterSheetViewViewController: UIViewController {
             drinkHealingPotion
         ])
         
+        
         let charOptionsMenu = UIBarButtonItem(image: UIImage(systemName: "shield.lefthalf.fill"  ), menu: charMenu)
         
         navigationItem.rightBarButtonItem = charOptionsMenu

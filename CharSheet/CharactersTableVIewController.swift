@@ -14,7 +14,7 @@ final class CharactersTableVIewController: UITableViewController {
         Yanko,
         Rand,
         CharacterSheet(hitPoints: 66, level: 6, name: "Kitt", dateCreated: newDate, currentHitPoints: 66,  attackMod: 7),
-        CharacterSheet(hitPoints: 18, level: 1, name: "Mark 4", dateCreated: newDate, currentHitPoints: 18, attackMod: 5),
+        CharacterSheet(hitPoints: 18, level: 1, name: "Mark_IV", dateCreated: newDate, currentHitPoints: 18, attackMod: 5),
         CharacterSheet(hitPoints: 44, level: 20, name: "Ba'alzamon", dateCreated: newDate, currentHitPoints: 44, attackMod: 22),
         CharacterSheet(hitPoints: 120, level: 12, name: "Moiraine", dateCreated: newDate, currentHitPoints: 120, attackMod: 11),
         CharacterSheet(hitPoints: 35, level: 5, name: "Varjo", dateCreated: newDate, currentHitPoints: 35, attackMod: 6),
@@ -29,7 +29,7 @@ final class CharactersTableVIewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -52,34 +52,39 @@ final class CharactersTableVIewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value2, reuseIdentifier: "cellIdentifier")
+//        if cell == nil {
+//            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
+//        }
 
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
-        }
-        
         
         print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
 //         Configure the cell...
         
         
+//        cell.contentView = UIStackView(arrangedSubviews: [UI])
 
-        cell!.textLabel?.text = characters[indexPath.row].name
-        cell!.detailTextLabel?.text = "Level: " + String(characters[indexPath.row].level)
         
-        return cell!
+        cell.textLabel?.text = characters[indexPath.row].name
+        cell.textLabel?.font = UIFont(name: "Headline", size: 20.0)
+        cell.detailTextLabel?.text = "Level: " + String(characters[indexPath.row].level)
+        
+        cell.detailTextLabel?.textAlignment = .right
+        
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = URL(string: "char://" + characters[indexPath.row].name) {
 //            UIApplication.shared.open(url)
-            print("going to \(characters[indexPath.row].name)'s page. \(url)")
+//            print("going to \(characters[indexPath.row].name)'s page. \(url)")
             
             let charSheet = CharacterSheetViewViewController(nibName: "CharacterSheetViewViewController", bundle: nil)
             charSheet.currentChar = characters[indexPath.row]
             
-            navigationController?.pushViewController(charSheet, animated: true)
-            
+//            navigationController?.pushViewController(charSheet, animated: true)
+            navigationController?.show(charSheet, sender: self)
             
         }
     }
