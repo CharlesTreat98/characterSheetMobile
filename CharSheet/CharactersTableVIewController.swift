@@ -29,7 +29,7 @@ final class CharactersTableVIewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        tableView.register(CustomCharacterCellTableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -51,9 +51,9 @@ final class CharactersTableVIewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
 //        var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value2, reuseIdentifier: "cellIdentifier")
+//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value2, reuseIdentifier: "cellIdentifier")
 //        if cell == nil {
 //            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
 //        }
@@ -76,7 +76,7 @@ final class CharactersTableVIewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = URL(string: "char://" + characters[indexPath.row].name) {
+//        if let url = URL(string: "char://" + characters[indexPath.row].name) {
 //            UIApplication.shared.open(url)
 //            print("going to \(characters[indexPath.row].name)'s page. \(url)")
             
@@ -86,7 +86,7 @@ final class CharactersTableVIewController: UITableViewController {
 //            navigationController?.pushViewController(charSheet, animated: true)
             navigationController?.show(charSheet, sender: self)
             
-        }
+    
     }
     
 

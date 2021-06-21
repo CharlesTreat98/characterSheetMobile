@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 final class CharacterSheetViewViewController: UIViewController {
 
