@@ -21,6 +21,13 @@ extension UIViewController {
 
         childViewController.didMove(toParent: self)
     }
+
+    public func presentModally(_ viewController: UIViewController) {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .formSheet
+
+        present(navigationController, animated: true)
+    }
 }
 
 extension UIView {

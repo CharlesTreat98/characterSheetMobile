@@ -11,7 +11,11 @@ import CoreLocation
 import MapKit
 
 
-struct CharacterSheet: Identifiable, Comparable {
+final class CharacterSheet: AnyObject, Identifiable, Comparable {
+    static func == (lhs: CharacterSheet, rhs: CharacterSheet) -> Bool {
+        return lhs.name == rhs.name
+    }
+
     static func < (lhs: CharacterSheet, rhs: CharacterSheet) -> Bool {
         return lhs.name < rhs.name
     }
@@ -26,6 +30,26 @@ struct CharacterSheet: Identifiable, Comparable {
     // Attack mod cannot be negative
     public var attackMod: Int
     public var creationCoordinate: CLLocationCoordinate2D? = nil
+
+    
+
+    init(
+        hitPoints: Int,
+        level: Int,
+        name: String,
+        dateCreated: Date,
+        currentHitPoints: Int,
+        attackMod: Int,
+        creationCoordinate: CLLocationCoordinate2D? = nil
+    ) {
+        self.hitPoints = hitPoints
+        self.level = level
+        self.name = name
+        self.dateCreated = dateCreated
+        self.currentHitPoints = currentHitPoints
+        self.attackMod = attackMod
+        self.creationCoordinate = creationCoordinate
+    }
 //    public var lat: Float
 //    public var long: Float
 //
@@ -57,6 +81,7 @@ struct CharacterSheet: Identifiable, Comparable {
             return nil
         }
     }
+
 }
 
 //extension CharacterSheet {
