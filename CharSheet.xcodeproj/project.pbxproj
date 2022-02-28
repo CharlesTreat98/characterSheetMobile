@@ -10,6 +10,7 @@
 		005E0926267A535500872241 /* CharacterSheetViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E0924267A535500872241 /* CharacterSheetViewViewController.swift */; };
 		005E0927267A535500872241 /* CharacterSheetViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E0925267A535500872241 /* CharacterSheetViewViewController.xib */; };
 		005E0961267D26B700872241 /* CustomCharacterCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E0960267D26B700872241 /* CustomCharacterCellTableViewCell.swift */; };
+		005E09632680FC8E00872241 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E09622680FC8E00872241 /* MapViewController.swift */; };
 		005ED360267940A400975988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED35F267940A400975988 /* AppDelegate.swift */; };
 		005ED362267940A400975988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED361267940A400975988 /* SceneDelegate.swift */; };
 		005ED364267940A400975988 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED363267940A400975988 /* ViewController.swift */; };
@@ -19,12 +20,17 @@
 		005ED36F267940A600975988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005ED36D267940A600975988 /* LaunchScreen.storyboard */; };
 		005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3AE267980B500975988 /* CharacterSheet.swift */; };
 		005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */; };
+		00F3051927A63D76000CE953 /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051827A63D76000CE953 /* ControllerExtensions.swift */; };
+		00F3051B27A66362000CE953 /* CharacterCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051A27A66362000CE953 /* CharacterCreation.swift */; };
+		00F3051D27A66791000CE953 /* ExtentRevealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */; };
+		00F3051F27A700F9000CE953 /* ExtentRevealerInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		005E0924267A535500872241 /* CharacterSheetViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewViewController.swift; sourceTree = "<group>"; };
 		005E0925267A535500872241 /* CharacterSheetViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSheetViewViewController.xib; sourceTree = "<group>"; };
 		005E0960267D26B700872241 /* CustomCharacterCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCharacterCellTableViewCell.swift; sourceTree = "<group>"; };
+		005E09622680FC8E00872241 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		005ED35C267940A400975988 /* CharSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005ED35F267940A400975988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005ED361267940A400975988 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,10 @@
 		005ED370267940A600975988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005ED3AE267980B500975988 /* CharacterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheet.swift; sourceTree = "<group>"; };
 		005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableVIewController.swift; sourceTree = "<group>"; };
+		00F3051827A63D76000CE953 /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
+		00F3051A27A66362000CE953 /* CharacterCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreation.swift; sourceTree = "<group>"; };
+		00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentRevealerViewController.swift; sourceTree = "<group>"; };
+		00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentRevealerInputCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 		005ED35E267940A400975988 /* CharSheet */ = {
 			isa = PBXGroup;
 			children = (
+				00F3051A27A66362000CE953 /* CharacterCreation.swift */,
 				005ED35F267940A400975988 /* AppDelegate.swift */,
 				005ED361267940A400975988 /* SceneDelegate.swift */,
 				005ED363267940A400975988 /* ViewController.swift */,
@@ -81,6 +92,10 @@
 				005E0924267A535500872241 /* CharacterSheetViewViewController.swift */,
 				005E0925267A535500872241 /* CharacterSheetViewViewController.xib */,
 				005E0960267D26B700872241 /* CustomCharacterCellTableViewCell.swift */,
+				005E09622680FC8E00872241 /* MapViewController.swift */,
+				00F3051827A63D76000CE953 /* ControllerExtensions.swift */,
+				00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */,
+				00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */,
 			);
 			path = CharSheet;
 			sourceTree = "<group>";
@@ -157,12 +172,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				005ED364267940A400975988 /* ViewController.swift in Sources */,
+				00F3051B27A66362000CE953 /* CharacterCreation.swift in Sources */,
 				005ED36A267940A400975988 /* CharSheet.xcdatamodeld in Sources */,
 				005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */,
+				00F3051927A63D76000CE953 /* ControllerExtensions.swift in Sources */,
 				005E0926267A535500872241 /* CharacterSheetViewViewController.swift in Sources */,
+				005E09632680FC8E00872241 /* MapViewController.swift in Sources */,
+				00F3051F27A700F9000CE953 /* ExtentRevealerInputCell.swift in Sources */,
 				005ED360267940A400975988 /* AppDelegate.swift in Sources */,
 				005ED362267940A400975988 /* SceneDelegate.swift in Sources */,
 				005E0961267D26B700872241 /* CustomCharacterCellTableViewCell.swift in Sources */,
+				00F3051D27A66791000CE953 /* ExtentRevealerViewController.swift in Sources */,
 				005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

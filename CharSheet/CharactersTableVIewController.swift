@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreLocation
+
 
 final class CharactersTableVIewController: UITableViewController {
 
@@ -14,20 +16,22 @@ final class CharactersTableVIewController: UITableViewController {
         Yanko,
         Rand,
         CharacterSheet(hitPoints: 66, level: 6, name: "Kitt", dateCreated: newDate, currentHitPoints: 66,  attackMod: 7),
-        CharacterSheet(hitPoints: 18, level: 1, name: "Mark_IV", dateCreated: newDate, currentHitPoints: 18, attackMod: 5),
+        CharacterSheet(hitPoints: 18, level: 1, name: "Mark_IV", dateCreated: newDate, currentHitPoints: 18, attackMod: 5, creationCoordinate: CLLocationCoordinate2D(latitude: 47.9032, longitude: -91.8671)),
         CharacterSheet(hitPoints: 44, level: 20, name: "Ba'alzamon", dateCreated: newDate, currentHitPoints: 44, attackMod: 22),
         CharacterSheet(hitPoints: 120, level: 12, name: "Moiraine", dateCreated: newDate, currentHitPoints: 120, attackMod: 11),
         CharacterSheet(hitPoints: 35, level: 5, name: "Varjo", dateCreated: newDate, currentHitPoints: 35, attackMod: 6),
-        CharacterSheet(hitPoints: 96, level: 10, name: "Fuyuki", dateCreated: newDate, currentHitPoints: 96, attackMod: 10),
-        CharacterSheet(hitPoints: 44, level: 5, name: "Tasbard", dateCreated: newDate, currentHitPoints: 44, attackMod: 7),
-        CharacterSheet(hitPoints: 70, level: 6, name: "Eloise", dateCreated: newDate, currentHitPoints: 70, attackMod: 8),
-        CharacterSheet(hitPoints: 58, level: 6, name: "Harenhalleth", dateCreated: newDate, currentHitPoints: 58, attackMod: 8),
+        CharacterSheet(hitPoints: 96, level: 10, name: "Fuyuki", dateCreated: newDate, currentHitPoints: 96, attackMod: 10, creationCoordinate: CLLocationCoordinate2D(latitude: 41.8781, longitude: -87.6298)),
+        CharacterSheet(hitPoints: 44, level: 5, name: "Tasbard", dateCreated: newDate, currentHitPoints: 44, attackMod: 7,  creationCoordinate: CLLocationCoordinate2D(latitude: 44.9747, longitude: -92.7569)),
+        CharacterSheet(hitPoints: 70, level: 6, name: "Eloise", dateCreated: newDate, currentHitPoints: 70, attackMod: 8, creationCoordinate: CLLocationCoordinate2D(latitude: 41.8781, longitude: -87.6298)),
+        CharacterSheet(hitPoints: 58, level: 6, name: "Harenhalleth", dateCreated: newDate, currentHitPoints: 58, attackMod: 8, creationCoordinate: CLLocationCoordinate2D(latitude: 44.9747, longitude: -92.7569)),
         CharacterSheet(hitPoints: 78, level: 9, name: "Cosmo", dateCreated: newDate, currentHitPoints: 78, attackMod: 12),
-        CharacterSheet(hitPoints: 60, level: 7, name: "Ishmael", dateCreated: newDate, currentHitPoints: 60, attackMod: 9)
+        CharacterSheet(hitPoints: 22, level: 4, name: "Neldor", dateCreated: newDate, currentHitPoints: 22, attackMod: 7, creationCoordinate: CLLocationCoordinate2D(latitude: 42.041505, longitude: -91.651223))
+        
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         tableView.register(CustomCharacterCellTableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         // Uncomment the following line to preserve selection between presentations
@@ -59,7 +63,7 @@ final class CharactersTableVIewController: UITableViewController {
 //        }
 
         
-        print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
+//        print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
 //         Configure the cell...
         
         

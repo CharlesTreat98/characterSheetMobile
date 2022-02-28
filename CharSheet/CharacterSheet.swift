@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import MapKit
+import CoreLocation
+import MapKit
 
 
 struct CharacterSheet: Identifiable, Comparable {
@@ -19,8 +22,23 @@ struct CharacterSheet: Identifiable, Comparable {
     public var name: String
     public var dateCreated: Date
     public var currentHitPoints: Int
+//    public var createdCoordinates?: CLLocation
     // Attack mod cannot be negative
     public var attackMod: Int
+    public var creationCoordinate: CLLocationCoordinate2D? = nil
+//    public var lat: Float
+//    public var long: Float
+//
+//    init(hitPoints: Int, level: Int, name: String, dateCreated: Date, currentHitPoints: Int, attackMod: Int, lat: Float? = 21.282778, long: Float? = -157.829444) {
+//        self.hitPoints = hitPoints
+//        self.level = level
+//        self.name = name
+//        self.dateCreated = dateCreated
+//        self.currentHitPoints = currentHitPoints
+//        self.attackMod = attackMod
+//        self.lat = lat!
+//        self.long = long!
+//    }
     
     func toHit() -> Bool {
         let Num = Int.random(in: 1...20) + self.attackMod
@@ -31,7 +49,21 @@ struct CharacterSheet: Identifiable, Comparable {
             return true
         }
     }
+
+    func characterCreationLocation() -> CharacterCreation? {
+        if let creationCoordinate = creationCoordinate {
+            return CharacterCreation(coordinate: creationCoordinate)
+        } else {
+            return nil
+        }
+    }
 }
+
+//extension CharacterSheet {
+//    public var lat: Float
+//    public var long: Float
+//
+//}
 
 
 //let date_str = "14/06/2021"
@@ -57,3 +89,10 @@ var Rand = CharacterSheet(hitPoints: 58, level: 3, name: "Rand", dateCreated: ne
 //     CharacterSheet(hitPoints: 35, level: 5, name: "Varjo", dateCreated: newDate, attackMod: 6),
 //     CharacterSheet(hitPoints: 96, level: 10, name: "Fuyuki", dateCreated: newDate, attackMod: 10),
 //     CharacterSheet(hitPoints: 44, level: 5, name: "Tasbard", dateCreated: newDate, attackMod: 7)]
+
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
