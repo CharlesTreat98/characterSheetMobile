@@ -1,6 +1,6 @@
 import UIKit
 
-class ExtentRevealerInputCell: UITableViewCell {
+class InputTableViewCell: UITableViewCell {
 
     lazy var stackView = self.lazyStackView()
     lazy var textField = self.lazyTextField()
@@ -16,23 +16,11 @@ class ExtentRevealerInputCell: UITableViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        preconditionFailure()
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
-extension ExtentRevealerInputCell {
+extension InputTableViewCell {
 
     fileprivate func lazyStackView() -> UIStackView {
 
@@ -60,7 +48,7 @@ extension ExtentRevealerInputCell {
         textField.adjustsFontForContentSizeCategory = true
         textField.setContentCompressionResistancePriority(.required, for: .vertical)
         textField.setContentHuggingPriority(.required, for: .vertical)
-        
+
         textField.font = .preferredFont(forTextStyle: .body)
 
         return textField

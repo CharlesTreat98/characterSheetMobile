@@ -20,7 +20,7 @@ class ExtentRevealerViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(ExtentRevealerInputCell.self, forCellReuseIdentifier: "cellIdentifier")
+        tableView.register(InputTableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         // Do any additional setup after loading the view.
     }
 
@@ -51,10 +51,10 @@ class ExtentRevealerViewController: UITableViewController {
     */
 
     private let inputRows = [
-        ExtentRevealerInputCell(with: "Center Latitude"),
-        ExtentRevealerInputCell(with: "Center Longitude"),
-        ExtentRevealerInputCell(with: "Span Latitude Delta"),
-        ExtentRevealerInputCell(with: "Span Longitude Delta")
+        InputTableViewCell(with: "Center Latitude"),
+        InputTableViewCell(with: "Center Longitude"),
+        InputTableViewCell(with: "Span Latitude Delta"),
+        InputTableViewCell(with: "Span Longitude Delta")
     ]
 
 

@@ -11,8 +11,8 @@ extension CharacterStats {
 
     enum Label: String, RawRepresentable, CaseIterable {
         case Strength
-        case Constitution
         case Dexterity
+        case Constitution
         case Wisdom
         case Intelligence
         case Charisma
