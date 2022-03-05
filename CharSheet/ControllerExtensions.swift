@@ -135,3 +135,10 @@ extension NSLayoutConstraint {
         return self
     }
 }
+
+extension UITableView {
+    
+//    public func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
+//        return dequeueReusableCell(withIdentifier: T.reuseIdentifier ?? "cellIdentifier", for: indexPath) as! T
+//    }
+}

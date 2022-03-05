@@ -3,7 +3,7 @@ import MapKit
 
 final class CharacterSheetViewViewController: UIViewController {
 
-    var currentChar: CharacterSheet = CharacterSheet(hitPoints: 0, level: 0, name: "", dateCreated: Date(), currentHitPoints: 0, attackMod: 0)
+    var currentChar: CharacterSheet = CharacterSheet(hitPoints: 0, level: 0, name: "", dateCreated: Date(), currentHitPoints: 0, attackMod: 0, characterStats: CharacterStats(strength: 10, constitution: 10, dexterity: 10, wisdom: 10, intelligence: 10, charisma: 10))
     
     
     @IBOutlet weak var textLabel:UILabel?

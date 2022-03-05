@@ -7,19 +7,8 @@
 import Foundation
 import UIKit
 
-final class CharacterAdditionViewController: UIViewController {
+final class CharacterAdditionViewController: UITableViewController {
 
-    let characterSheet: CharacterSheet
-
-    init(characterSheet: CharacterSheet) {
-        self.characterSheet = characterSheet
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        preconditionFailure()
-    }
 }
 
 extension CharacterAdditionViewController {
@@ -27,9 +16,29 @@ extension CharacterAdditionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(CharacterStatCell.self, forCellReuseIdentifier: String(describing: CharacterStatCell.self))
         // Do any additional setup after loading the view.
     }
-    
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+
+    private var statRows: [CharacterStats.Label] {
+        return CharacterStats.Label.allCases
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statRows.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CharacterStatCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CharacterStatCell.self), for: indexPath) as! CharacterAdditionViewController.CharacterStatCell
+        cell.render(stat: statRows[indexPath.row])
+        cell.pickerView.reloadAllComponents()
+        return cell
+    }
 
     /*
     // MARK: - Navigation
@@ -43,23 +52,66 @@ extension CharacterAdditionViewController {
 
 }
 
-
 extension CharacterAdditionViewController {
 
-    private func createSDCWICRow(for stat: CharacterStats) -> UIStackView {
-        let label = createLabel(for: stat.rawValue)
+    class CharacterStatCell: UITableViewCell {
 
-        let numberPicker = UIPickerView()
+        lazy var pickerView: UIPickerView = createSDCWICSelectionRow()
+        lazy var label = self.createLabel()
+        lazy var stackView = self.lazyStackView()
 
-        numberPicker.delegate = StatBlockPickerDataSource(update: { newValue in
-            
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+        }
 
-        })
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
 
-    }
+        func render(stat: CharacterStats.Label) {
+            label.text = stat.rawValue
 
-    private func createLabel(for text: String) -> UILabel {
-        return UILabel(font: .preferredFont(forTextStyle: .headline), text: text)
+            stackView.setContentCompressionResistancePriority(.required, for: .vertical)
+
+            contentView.addSubview(stackView)
+            stackView.constrain(to: contentView)
+        }
+
+        private func createSDCWICSelectionRow() -> UIPickerView {
+
+            let numberPicker = UIPickerView()
+
+            let dataSource = StatBlockPickerDataSource(update: { newValue in
+
+            })
+
+            numberPicker.delegate = dataSource
+            numberPicker.dataSource = dataSource
+
+            numberPicker.selectRow(10, inComponent: 0, animated: false)
+
+            numberPicker.backgroundColor = .systemBackground
+            numberPicker.translatesAutoresizingMaskIntoConstraints = false
+
+            return numberPicker
+        }
+
+        private func lazyStackView() -> UIStackView {
+            let stackView = UIStackView(
+                arrangedSubviews: [label, pickerView],
+                axis: .vertical,
+                alignment: .leading,
+                distribution: .fillEqually
+            )
+
+            stackView.setContentCompressionResistancePriority(.required, for: .vertical)
+
+            return stackView
+        }
+
+        private func createLabel() -> UILabel {
+            return UILabel(font: .preferredFont(forTextStyle: .headline), text: "")
+        }
     }
 }
 
