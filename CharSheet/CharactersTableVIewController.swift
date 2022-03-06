@@ -1,10 +1,3 @@
-//
-//  CharactersTableVIewController.swift
-//  CharSheet
-//
-//  Created by Charlie Treat on 6/15/21.
-//
-
 import UIKit
 import CoreLocation
 
@@ -21,8 +14,15 @@ final class CharactersTableVIewController: UITableViewController {
         return Date(timeIntervalSince1970: TimeInterval(55))
     }
 
-    var characters: [CharacterSheet] {
-        return [
+    var characters: [CharacterSheet] = []
+}
+
+extension CharactersTableVIewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        characters = [
             CharacterSheet(hitPoints: 66, level: 6, name: "Kitt", dateCreated: newDate, currentHitPoints: 66,  attackMod: 7, characterStats: defaultStats),
             CharacterSheet(hitPoints: 18, level: 1, name: "Mark_IV", dateCreated: newDate, currentHitPoints: 18, attackMod: 5, characterStats: defaultStats, creationCoordinate: CLLocationCoordinate2D(latitude: 47.9032, longitude: -91.8671)),
             CharacterSheet(hitPoints: 44, level: 20, name: "Ba'alzamon", dateCreated: newDate, currentHitPoints: 44, attackMod: 22, characterStats: defaultStats),
@@ -35,10 +35,6 @@ final class CharactersTableVIewController: UITableViewController {
             CharacterSheet(hitPoints: 78, level: 9, name: "Cosmo", dateCreated: newDate, currentHitPoints: 78, attackMod: 12, characterStats: defaultStats),
             CharacterSheet(hitPoints: 22, level: 4, name: "Neldor", dateCreated: newDate, currentHitPoints: 22, attackMod: 7, characterStats: defaultStats, creationCoordinate: CLLocationCoordinate2D(latitude: 42.041505, longitude: -91.651223))
         ]
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
 
         tableView.register(CustomCharacterCellTableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
@@ -83,8 +79,8 @@ extension CharactersTableVIewController {
     private func lazyEditItem() -> UIBarButtonItem {
         let plusImage = UIImage(systemName: "plus")
 
-        let editAction = UIAction(handler: { _ in
-            self.presentModally(CharacterAdditionViewController())
+        let editAction = UIAction(handler: { [weak self] _ in
+            self?.presentModally(CharacterAdditionViewController(presentingCharacterViewController: self!))
         })
 
         let editButtonItem = UIBarButtonItem(image: plusImage, primaryAction: editAction)

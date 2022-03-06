@@ -16,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let characters = CharactersTableVIewController(nibName: "CharactersTableVIewController", bundle: nil)
+        let characters = CharactersTableVIewController(style: .plain)
         
         characters.title = "Characters"
         

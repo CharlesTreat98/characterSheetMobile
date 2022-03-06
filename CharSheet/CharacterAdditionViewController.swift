@@ -1,14 +1,8 @@
-//
-//  CharacterAdditionViewController.swift
-//  CharSheet
-//
-//  Created by Charlie Treat on 2/27/22.
-//
 import Foundation
 import UIKit
+import MapKit
 
 final class CharacterAdditionViewController: UITableViewController {
-
 
     private var statCells: [CharacterStatCell] = CharacterStats.Label.allCases.map { CharacterStatCell(stat: $0) }
 
@@ -16,11 +10,23 @@ final class CharacterAdditionViewController: UITableViewController {
         InputTableViewCell(with: "Name"),
         InputTableViewCell(with: "Level"),
         InputTableViewCell(with: "Class"),
-        InputTableViewCell(with: "Hitpoints")
+        InputTableViewCell(with: "Hit Points")
     ]
 
-    private var allRows: [UITableViewCell] {
+    private var allRows: [InputCellValueProvider] {
         return playerBasicInfo + statCells
+    }
+
+    var presentingCharacterViewController: CharactersTableVIewController
+
+    init(presentingCharacterViewController: CharactersTableVIewController) {
+        self.presentingCharacterViewController = presentingCharacterViewController
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -34,6 +40,8 @@ extension CharacterAdditionViewController {
         tableView.register(CharacterStatCell.self, forCellReuseIdentifier: String(describing: CharacterStatCell.self))
         tableView.register(InputTableViewCell.self, forCellReuseIdentifier: String(describing: InputTableViewCell.self))
         // Do any additional setup after loading the view.
+
+        setUpSubmitButton()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,26 +56,80 @@ extension CharacterAdditionViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return allRows[indexPath.row]
     }
+
+    private func setUpSubmitButton() {
+        let action = UIAction { [weak self, presentingCharacterViewController] _ in
+            guard let characterSheet = self?.createCharacterSheet() else {
+                // Set up input validation
+                return
+            }
+
+            presentingCharacterViewController.characters.append(characterSheet)
+            self?.navigationController?.dismiss(animated: true)
+        }
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", primaryAction: action)
+    }
+
+    private func createCharacterSheet() -> CharacterSheet? {
+        guard let hitpoints = (allRows.first { $0.key == "Hit Points"})?.currentValue,
+              let intHp = Int(hitpoints),
+              let level = (allRows.first { $0.key == "Level"})?.currentValue,
+              let intLevel = Int(level),
+              let name = (allRows.first { $0.key == "Name"})?.currentValue,
+              let str = (allRows.first { $0.key == "Strength"})?.currentValue,
+              let intStr = Int(str),
+              let dex = (allRows.first { $0.key == "Dexterity"})?.currentValue,
+              let intDex = Int(dex),
+              let con = (allRows.first { $0.key == "Constitution"})?.currentValue,
+              let intCon = Int(con),
+              let int = (allRows.first { $0.key == "Intelligence"})?.currentValue,
+              let intInt = Int(int),
+              let chr = (allRows.first { $0.key == "Charisma"})?.currentValue,
+              let intChr = Int(chr),
+              let wis = (allRows.first { $0.key == "Wisdom"})?.currentValue,
+              let intWis = Int(wis)
+        else {
+            return nil
+        }
+
+        return CharacterSheet(
+            hitPoints: intHp,
+            level: intLevel,
+            name: name,
+            dateCreated: Date(timeIntervalSince1970: 500.0),
+            currentHitPoints: intHp,
+            attackMod: 0,
+            characterStats: CharacterStats(
+                strength: intStr,
+                constitution: intCon,
+                dexterity: intDex,
+                wisdom: intWis,
+                intelligence: intInt,
+                charisma: intChr
+            ),
+            creationCoordinate: nil
+        )
+
+    }
 }
 
 extension CharacterAdditionViewController {
 
-    class CharacterStatCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
+    class CharacterStatCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate, InputCellValueProvider {
 
         lazy var pickerView: UIPickerView = createSDCWICSelectionRow()
         lazy var label = self.createLabel()
+
+        var key: String? {
+            return label.text
+        }
 
         var currentValue: String? {
             return pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         }
 
         private var update: ((Int) -> Void)?
-
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-            configure()
-        }
 
         init(stat: CharacterStats.Label) {
             super.init(style: .default, reuseIdentifier: String(describing: CharacterStatCell.self))
@@ -83,14 +145,16 @@ extension CharacterAdditionViewController {
 
         private func configure() {
 
+            selectionStyle = .none
+
             contentView.addSubview(label)
             contentView.addSubview(pickerView)
 
             NSLayoutConstraint.activate([
-                label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4.0),
-                label.trailingAnchor.constraint(equalTo: contentView.centerXAnchor),
-                label.topAnchor.constraint(equalTo: contentView.topAnchor),
-                label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                label.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+                label.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.centerXAnchor),
+                label.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+                label.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
                 label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
                 pickerView.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -141,7 +205,7 @@ extension CharacterAdditionViewController {
         }
 
         private func createLabel() -> UILabel {
-            return UILabel(font: .preferredFont(forTextStyle: .headline), text: "")
+            return .makeDynamicTableViewCellTitleLabel()
         }
     }
 }
