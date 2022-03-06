@@ -23,13 +23,7 @@ final class CharactersTableVIewController: UITableViewController {
     var characterCells: [CustomCharacterCellTableViewCell] {
         return characterCollection.characterSheets.map { sheet in
             let cell = CustomCharacterCellTableViewCell(style: .default, reuseIdentifier: String(describing: CustomCharacterCellTableViewCell.self))
-
-            cell.textLabel?.text = sheet.name
-            cell.textLabel?.font = UIFont(name: "Headline", size: 20.0)
-            cell.detailTextLabel?.text = "Level: " + String(sheet.level)
-
-            cell.detailTextLabel?.textAlignment = .right
-
+            cell.render(with: sheet)
             return cell
         }
     }
@@ -74,11 +68,9 @@ extension CharactersTableVIewController {
     func add(characterSheet: CharacterSheet) {
         characterCollection.characterSheets.append(characterSheet)
         tableView.performBatchUpdates({
-            tableView.beginUpdates()
-            self.tableView.insertRows(at: [IndexPath(row: self.characterCollection.characterSheets.count - 1,
-                                                        section: 0)],
-                                         with: .automatic)
-            tableView.endUpdates()
+            self.tableView.insertRows(
+                at: [IndexPath(row: self.characterCollection.characterSheets.count - 1,section: 0)],
+                with: .automatic)
         }, completion: nil)
     }
 }
@@ -89,7 +81,11 @@ extension CharactersTableVIewController {
         let plusImage = UIImage(systemName: "plus")
 
         let editAction = UIAction(handler: { [weak self] _ in
-            self?.presentModally(CharacterAdditionViewController(presentingCharacterViewController: self!))
+            guard let self = self else {
+                return
+            }
+
+            self.presentModally(CharacterAdditionViewController(presentingCharacterViewController: self))
         })
 
         let editButtonItem = UIBarButtonItem(image: plusImage, primaryAction: editAction)

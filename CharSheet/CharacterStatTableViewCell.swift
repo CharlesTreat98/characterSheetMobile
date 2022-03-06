@@ -20,8 +20,6 @@ class CharacterStatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPic
         return pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
     }
 
-    private var update: ((Int) -> Void)?
-
     init(stat: CharacterStats.Label) {
         super.init(style: .default, reuseIdentifier: String(describing: CharacterStatTableViewCell.self))
 
@@ -57,9 +55,8 @@ class CharacterStatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPic
         ])
     }
 
-    func render(stat: CharacterStats.Label, update: @escaping (Int) -> Void) {
+    func render(stat: CharacterStats.Label) {
         label.text = stat.rawValue
-        self.update = update
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -76,8 +73,6 @@ class CharacterStatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPic
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerView.reloadAllComponents()
-
-        update?(row)
     }
 
     private func createSDCWICSelectionRow() -> UIPickerView {

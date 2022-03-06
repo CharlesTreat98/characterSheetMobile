@@ -19,7 +19,6 @@ final class CharacterSheet: Identifiable, Comparable {
     public var name: String
     public var dateCreated: Date
     public var currentHitPoints: Int
-//    public var createdCoordinates?: CLLocation
     // Attack mod cannot be negative
     public var attackMod: Int
     public var creationCoordinate: CLLocationCoordinate2D? = nil
