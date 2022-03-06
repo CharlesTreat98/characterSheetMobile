@@ -1,16 +1,9 @@
-//
-//  CharacterSheetViewViewController.swift
-//  CharSheet
-//
-//  Created by Charlie Treat on 6/16/21.
-//
-
 import UIKit
 import MapKit
 
 final class CharacterSheetViewViewController: UIViewController {
 
-    var currentChar: CharacterSheet = CharacterSheet(hitPoints: 0, level: 0, name: "", dateCreated: Date(), currentHitPoints: 0, attackMod: 0)
+    var currentChar: CharacterSheet = CharacterSheet(hitPoints: 0, level: 0, name: "", dateCreated: Date(), currentHitPoints: 0, attackMod: 0, characterStats: CharacterStats(strength: 10, constitution: 10, dexterity: 10, wisdom: 10, intelligence: 10, charisma: 10))
     
     
     @IBOutlet weak var textLabel:UILabel?
@@ -44,31 +37,8 @@ final class CharacterSheetViewViewController: UIViewController {
         hitStatus?.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
         hitButton?.setTitle("Roll to Hit the Goblin!", for: .normal)
-//        hitButton?.addAction(self.determineHit(), for: hitButton?.isHighlighted)
-//        hitButton?.addTarget(self, action: #selector(determineHit(sender:)), for: .touchUpInside)
-        
-        
-        
+
         // Do any additional setup after loading the view.
-
-        let toolBar = UIToolbar()
-
-        let label = UILabel(font: .preferredFont(forTextStyle: .headline), text: "Testing The Font")
-
-        label.adjustsFontForContentSizeCategory = true
-
-        let toolbarButtonItem = UIBarButtonItem(customView: label)
-        toolBar.items = [toolbarButtonItem]
-        toolBar.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(toolBar)
-
-        NSLayoutConstraint.activate([
-            toolBar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            toolBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            toolBar.heightAnchor.constraint(greaterThanOrEqualToConstant: 44)
-        ])
     }
     
     private func setupBarButtonItem() {
@@ -89,10 +59,7 @@ final class CharacterSheetViewViewController: UIViewController {
         let navButton = UIBarButtonItem(image: UIImage(systemName: "location"), primaryAction: openNav)
         
         let charOptionsMenu = UIBarButtonItem(image: UIImage(systemName: "shield.lefthalf.fill"  ), menu: charMenu)
-        
-//        let charOptions = UIBarButtonItemGroup(barButtonItems: [navButton, charOptionsMenu], representativeItem: UIBarButtonItem(image: UIImage(systemName: "person")))
-        
-//        navigationItem.rightBarButtonItem = charOptions
+
         navigationItem.rightBarButtonItems = [navButton, charOptionsMenu]
         
     }
@@ -100,7 +67,6 @@ final class CharacterSheetViewViewController: UIViewController {
     @objc func showMapView() {
 
         let mapView = MapViewController(characterLocation: currentChar.characterCreationLocation())
-//        navigationController?.show(MapViewController, sender: self)
         navigationController?.show(mapView, sender: self)
         
     }
@@ -134,21 +100,6 @@ final class CharacterSheetViewViewController: UIViewController {
         let hpHealed = Int.random(in: 4...8)
         currentChar.currentHitPoints = currentChar.currentHitPoints + hpHealed
         hitStatus?.text = "\(currentChar.name) was healed for \(hpHealed). They now have \(currentChar.currentHitPoints)"
-            
-        }
-        
-        
-        
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

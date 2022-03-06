@@ -20,10 +20,15 @@
 		005ED36F267940A600975988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005ED36D267940A600975988 /* LaunchScreen.storyboard */; };
 		005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3AE267980B500975988 /* CharacterSheet.swift */; };
 		005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */; };
+		00C5DC2827CC5E34000810A0 /* CharacterAdditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5DC2727CC5E34000810A0 /* CharacterAdditionViewController.swift */; };
+		00C5DC2A27CC6CA5000810A0 /* CharacterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5DC2927CC6CA5000810A0 /* CharacterStats.swift */; };
+		00C5E44827D40A0E000810A0 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E44727D40A0D000810A0 /* InputTableViewCell.swift */; };
+		00C5E44A27D46B95000810A0 /* InputCellValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E44927D46B95000810A0 /* InputCellValueProvider.swift */; };
+		00C5E44C27D47658000810A0 /* CharacterCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E44B27D47658000810A0 /* CharacterCollection.swift */; };
+		00C5E44E27D52AE3000810A0 /* CharacterStatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E44D27D52AE3000810A0 /* CharacterStatTableViewCell.swift */; };
 		00F3051927A63D76000CE953 /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051827A63D76000CE953 /* ControllerExtensions.swift */; };
 		00F3051B27A66362000CE953 /* CharacterCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051A27A66362000CE953 /* CharacterCreation.swift */; };
 		00F3051D27A66791000CE953 /* ExtentRevealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */; };
-		00F3051F27A700F9000CE953 /* ExtentRevealerInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +47,15 @@
 		005ED370267940A600975988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005ED3AE267980B500975988 /* CharacterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheet.swift; sourceTree = "<group>"; };
 		005ED3B0267988DD00975988 /* CharactersTableVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableVIewController.swift; sourceTree = "<group>"; };
+		00C5DC2727CC5E34000810A0 /* CharacterAdditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdditionViewController.swift; sourceTree = "<group>"; };
+		00C5DC2927CC6CA5000810A0 /* CharacterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStats.swift; sourceTree = "<group>"; };
+		00C5E44727D40A0D000810A0 /* InputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
+		00C5E44927D46B95000810A0 /* InputCellValueProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCellValueProvider.swift; sourceTree = "<group>"; };
+		00C5E44B27D47658000810A0 /* CharacterCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollection.swift; sourceTree = "<group>"; };
+		00C5E44D27D52AE3000810A0 /* CharacterStatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStatTableViewCell.swift; sourceTree = "<group>"; };
 		00F3051827A63D76000CE953 /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
 		00F3051A27A66362000CE953 /* CharacterCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreation.swift; sourceTree = "<group>"; };
 		00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentRevealerViewController.swift; sourceTree = "<group>"; };
-		00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentRevealerInputCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,12 @@
 				005E09622680FC8E00872241 /* MapViewController.swift */,
 				00F3051827A63D76000CE953 /* ControllerExtensions.swift */,
 				00F3051C27A66791000CE953 /* ExtentRevealerViewController.swift */,
-				00F3051E27A700F9000CE953 /* ExtentRevealerInputCell.swift */,
+				00C5DC2727CC5E34000810A0 /* CharacterAdditionViewController.swift */,
+				00C5DC2927CC6CA5000810A0 /* CharacterStats.swift */,
+				00C5E44727D40A0D000810A0 /* InputTableViewCell.swift */,
+				00C5E44927D46B95000810A0 /* InputCellValueProvider.swift */,
+				00C5E44B27D47658000810A0 /* CharacterCollection.swift */,
+				00C5E44D27D52AE3000810A0 /* CharacterStatTableViewCell.swift */,
 			);
 			path = CharSheet;
 			sourceTree = "<group>";
@@ -177,13 +192,18 @@
 				005ED3AF267980B500975988 /* CharacterSheet.swift in Sources */,
 				00F3051927A63D76000CE953 /* ControllerExtensions.swift in Sources */,
 				005E0926267A535500872241 /* CharacterSheetViewViewController.swift in Sources */,
+				00C5E44E27D52AE3000810A0 /* CharacterStatTableViewCell.swift in Sources */,
+				00C5E44827D40A0E000810A0 /* InputTableViewCell.swift in Sources */,
 				005E09632680FC8E00872241 /* MapViewController.swift in Sources */,
-				00F3051F27A700F9000CE953 /* ExtentRevealerInputCell.swift in Sources */,
+				00C5E44C27D47658000810A0 /* CharacterCollection.swift in Sources */,
 				005ED360267940A400975988 /* AppDelegate.swift in Sources */,
 				005ED362267940A400975988 /* SceneDelegate.swift in Sources */,
 				005E0961267D26B700872241 /* CustomCharacterCellTableViewCell.swift in Sources */,
 				00F3051D27A66791000CE953 /* ExtentRevealerViewController.swift in Sources */,
+				00C5DC2827CC5E34000810A0 /* CharacterAdditionViewController.swift in Sources */,
+				00C5DC2A27CC6CA5000810A0 /* CharacterStats.swift in Sources */,
 				005ED3B1267988DD00975988 /* CharactersTableVIewController.swift in Sources */,
+				00C5E44A27D46B95000810A0 /* InputCellValueProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

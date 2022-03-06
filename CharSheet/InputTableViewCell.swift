@@ -1,38 +1,36 @@
 import UIKit
 
-class ExtentRevealerInputCell: UITableViewCell {
+class InputTableViewCell: UITableViewCell, InputCellValueProvider {
 
     lazy var stackView = self.lazyStackView()
     lazy var textField = self.lazyTextField()
     lazy var label = self.lazyLabel()
+
+    var key: String? {
+        return label.text
+    }
+
+    var currentValue: String? {
+        return textField.text
+    }
 
     init(with labelText: String) {
         super.init(style: .default, reuseIdentifier: "cellIdentifier")
 
         label.attributedText = NSAttributedString(string: labelText)
 
+        selectionStyle = .none
+
         contentView.addSubview(stackView)
         stackView.constrain(toGuide: contentView.layoutMarginsGuide)
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        preconditionFailure()
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
-extension ExtentRevealerInputCell {
+extension InputTableViewCell {
 
     fileprivate func lazyStackView() -> UIStackView {
 
@@ -60,7 +58,7 @@ extension ExtentRevealerInputCell {
         textField.adjustsFontForContentSizeCategory = true
         textField.setContentCompressionResistancePriority(.required, for: .vertical)
         textField.setContentHuggingPriority(.required, for: .vertical)
-        
+
         textField.font = .preferredFont(forTextStyle: .body)
 
         return textField

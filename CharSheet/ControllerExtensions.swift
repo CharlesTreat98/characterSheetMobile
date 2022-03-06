@@ -21,6 +21,16 @@ extension UIViewController {
 
         childViewController.didMove(toParent: self)
     }
+
+    /// This method allows developers to present "form sheet" view controllers that pop up form the bottom of the screen
+    /// in compact mode and centered sheet on larger screens. These view controllers should be dismisses via the
+    /// navigation view controller or by the user sliding down. 
+    public func presentModally(_ viewController: UIViewController) {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .formSheet
+
+        present(navigationController, animated: true)
+    }
 }
 
 extension UIView {

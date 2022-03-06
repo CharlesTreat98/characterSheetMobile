@@ -46,12 +46,6 @@ class MapViewController: UIViewController {
 
         self.mapView = MKMapView(frame: CGRect(x: 0, y: 20, width: window.frame.width, height: window.frame.height))
 
-//        mapView?.setCameraBoundary(
-//          MKMapView.CameraBoundary(coordinateRegion: region),
-//          animated: true)
-
-        
-
         view.addSubview(mapView!)
 
         if let characterLocation = characterLocation {
@@ -82,28 +76,11 @@ class MapViewController: UIViewController {
 
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
     */
 
     @objc
     private func showExtentRevealer() {
-//        navigationController?.show(ExtentRevealerViewController(presentingViewController: self), sender: self)
-//        let newNavigationController = UINavigationController()
-
-
-        present(ExtentRevealerViewController(presentingViewController: self))
-    }
-
-    private func present(_ viewController: UIViewController) {
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .formSheet
-
-        present(navigationController, animated: true)
+        presentModally(ExtentRevealerViewController(presentingViewController: self))
     }
 
     private func applyCache() {
