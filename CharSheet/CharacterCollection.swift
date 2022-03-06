@@ -1,8 +1,9 @@
 class CharacterCollection {
 
-    var characterSheets: [CharacterSheet]
+    var characterSheets: [CharacterSheet] 
 
     init(characterSheets: [CharacterSheet]) {
         self.characterSheets = characterSheets
     }
 }
+
